@@ -1,5 +1,7 @@
 const crypto = require('crypto');
 
+const generateIV = () => crypto.randomBytes(16).toString('hex');
+
 const decryptData = (secretKey, iv, encryptedData) => {
     return new Promise((resolve, reject) => {
         try {
@@ -42,8 +44,8 @@ const encryptData = (secretKey, iv, data) => {
     })    
 };
 
-
 module.exports = {
     decryptData,
-    encryptData
+    encryptData,
+    generateIV
 }
