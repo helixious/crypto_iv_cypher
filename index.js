@@ -1,4 +1,3 @@
-const { SECRET_KEY, IV } = require('./config');
 const crypto = require('crypto');
 
 const decryptData = (secretKey, iv, encryptedData) => {
