@@ -18,7 +18,7 @@ const {encryptData, decryptData} = require('crypto-iv-cypher');
 let secretData = "Hello this is a secret";
 
 const encryptedData = encryptData(SECRET_KEY, IV, secretData);
-const decryptedData = decryptedData(SECRET_KEY, IV, encryptedData);
+const decryptedData = decryptData(SECRET_KEY, IV, encryptedData);
 // decryptedData => "Hello this is a secret";
 
 ```
