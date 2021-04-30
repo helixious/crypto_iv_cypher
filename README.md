@@ -13,14 +13,34 @@ npm install crypto-iv-cypher
 ## Usage
 
 ```node
-const {encryptData, decryptData} = require('crypto-iv-cypher');
+const cypher = require('crypto_iv_cypher');
 
-let secretData = "Hello this is a secret";
 
-const encryptedData = encryptData(SECRET_KEY, IV, secretData);
-const decryptedData = decryptData(SECRET_KEY, IV, encryptedData);
-// decryptedData => "Hello this is a secret";
+let secret = 'secret';
+let iv = cypher.generateIV();
+// random 16 bytes => hex string (54e43ad7e7c60c61e584cf38be5f92fd)
 
+
+// Call Examples:
+cypher.encryptData(secret, iv, 'hello world').then(encrypted => {
+    // 'aes-256-cbc' cipher => hex (4a5791d0dcd714659db08e93fb9a526b)
+    // return encrypted hex string
+});
+
+cypher.decryptData(secret,iv,encrypted).then(result => {
+    // return result string
+})
+
+// Async examples:
+const encrypt = async (secret, iv, data) => {
+    let encrypted = await cypher.encryptData(secret, iv, data);
+    return encrypted;
+}
+
+const decrypt = async(secret, iv, encrypted) => {
+    let decrypted = await cypher.decryptData(secret,iv,encrypted);
+    return decrypted;
+}
 ```
 
 ## Contributing
