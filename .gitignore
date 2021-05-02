@@ -108,3 +108,4 @@ secrets.txt
 config.js
 
 cids
+.DS_Store

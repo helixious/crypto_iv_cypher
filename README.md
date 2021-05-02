@@ -4,7 +4,7 @@ Crypto IV Cypher.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [npm] to install crypto_iv_cypher.
 
 ```bash
 npm install crypto-iv-cypher
@@ -18,11 +18,12 @@ const cypher = require('crypto_iv_cypher');
 
 let secret = 'secret';
 let iv = cypher.generateIV();
+let secretData = 'Hello World, please encrypt me!';
 // random 16 bytes => hex string (54e43ad7e7c60c61e584cf38be5f92fd)
 
 
 // Call Examples:
-cypher.encryptData(secret, iv, 'hello world').then(encrypted => {
+cypher.encryptData(secret, iv, secretData).then(encrypted => {
     // 'aes-256-cbc' cipher => hex (4a5791d0dcd714659db08e93fb9a526b)
     // return encrypted hex string
 });
