@@ -19,12 +19,12 @@ const cypher = require('crypto_iv_cypher');
 let secret = 'secret';
 let iv = cypher.generateIV();
 let secretData = 'Hello World, please encrypt me!';
-// random 16 bytes => hex string (54e43ad7e7c60c61e584cf38be5f92fd)
+// random 16 bytes => hex <string>
 
 
 // Call Examples:
 cypher.encryptData(secret, iv, secretData).then(encrypted => {
-    // 'aes-256-cbc' cipher => hex (4a5791d0dcd714659db08e93fb9a526b)
+    // 'aes-256-cbc' cipher => hex <string>
     // return encrypted hex string
 });
 

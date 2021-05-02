@@ -6,7 +6,7 @@ const decryptData = (secretKey, iv, encryptedData) => {
     return new Promise((resolve, reject) => {
         try {
             if (!iv) {
-                iv = crypto.randomBytes(12);
+                iv = crypto.randomBytes(16);
             } else if (typeof iv === 'string') {
                 iv = Buffer.from(iv, 'hex');
             }
@@ -28,7 +28,7 @@ const encryptData = (secretKey, iv, data) => {
             crypto.scrypt(secretKey, 'salt', 32, (err, key) => {
                 if (err) return null;
                 if(!iv) {
-                    iv = crypto.randomBytes(12);
+                    iv = crypto.randomBytes(16);
                 } else if(typeof iv === 'string') {
                     iv = Buffer.from(iv, 'hex');
                 }
